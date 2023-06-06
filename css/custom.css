@@ -238,10 +238,10 @@ body {
   position: fixed;
   top: 0%;
   left: 0%;
-  background:    #272727;
+  background:   #1E2B32; /* #272727; */
   box-sizing: border-box;
   box-sizing: content-box;
-  border: solid #5B6DCD 2px;
+  /* border: solid #5B6DCD 2px; */
   padding: 5px;
   border-radius: 5px;
   width: 100%;
@@ -364,11 +364,15 @@ body {
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 .keywords-container {
     position: fixed;
-    width: 500px;
-    top: 43px;
-    height:100%;
+    width: 450px;
+    top: 10%;
+    top-min:10px;
+    height:80%;
+    
     right: 0%;
     color: white;
+    overflow-y : auto;
+    overflow-x: hidden;
 }
 
 .keywords-card{
@@ -400,7 +404,7 @@ body {
   transition: 1s all;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
-  padding: 15px;
+  padding: 5px;
   /* margin-left: -40px; */
   margin-top: 0px;
   color: #fff;
@@ -419,15 +423,24 @@ body {
 
 li:hover{
   /* transition: 1s all; */
-  color: #2f89fc;
-  background-color:#ccc;   /* rgba(42, 56, 65, 0.82); */
+     color: #fddb3a;
+     -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color:#ccc;   
   border-top-right-radius: 10px 10px;
   border-bottom-right-radius: 10px 10px;
   cursor: pointer;
 }
 
 .keywords-body > li{
-  float: left;
+    float: left;
+    
+}
+
+.category-header:hover {
+    /* letter-spacing: 3px; */
+    transform: skewX(20deg) translate(10px);
+    transition: 0.5s;
 }
 
 .keywords-body li ul{
@@ -435,14 +448,15 @@ li:hover{
     display: none;
 }
 
-.beywords-body a {
+.keywords-body a {
   text-decoration: none;
 }
 
 .keywords-body li:hover > ul{
   display: block;
   cursor: pointer;
-  background-color:#ccc;
+  /* background-color:#ccc; */
+  color: #fddb3a;
 }
 
 
@@ -454,10 +468,15 @@ li:hover{
   border-radius: 4px;
 }
 .keywords-menu li.active .dropdownlink {
-  /* color: #CDDC39; */
+    /* color: #CDDC39; */
+    letter-spacing: 0px;
   .fa-chevron-down {
     transform: rotate(180deg);
   }
+}
+
+.keywords-body > ul > li.active:hover {
+    letter-spacing: 0px;
 }
 
 .active a {
@@ -471,8 +490,8 @@ li:hover{
 .dropdownlink {
   cursor: pointer;
   display: block;
-  padding: 15px 15px 15px 45px;
-  font-size: 18px;
+  padding: 5px 5px 5px 35px;
+  font-size: 15px;
   border-bottom: 1px solid #ccc;
   color: white;/* #212121 */
   position: relative;
@@ -490,9 +509,12 @@ li:hover{
 
 .keywords-body .active .submenuItems, .keywords-body .active {
     transition: all 0.4s ease-out;
-  background: #154460;
+    background: #154460;
+ 
 }
-/* .keywords-body .active { */
+.keywords-body  {
+ 
+}
 
 /*   background: #07664d; */
 /* } */
@@ -500,19 +522,132 @@ li:hover{
 
 .dropdownlink a {
     &:hover {
-    background-color: #ccc;
-    color: #fff;
+    /* background-color: #ccc; */
+	color: #fff;
+	letter-spacing: 1px;
   }
 }
 
 .submenuItems a {
   display: block;
   color: white;
-  padding: 12px 12px 12px 45px;
+  padding: 3px 3px 3px 30px;
   transition: all 0.4s ease-out;
   &:hover {
-      background-color: #ccc;
+      /* background-color: #ccc; */
       color:#1E2B32;
+      letter-spacing: 1px;
     
   }
 }
+
+
+.type-container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	height: 10%;
+	margin-top:3%;
+}
+
+.type-container .btn {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 30%;
+	height: 50px;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.type-container .btn a {
+	position: absolute;
+	top: 10%;
+	left: 0;
+	width: 100%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 30px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
+}
+
+.keywords-card .btn:hover a {
+	letter-spacing: 3px;
+}
+
+.type-container .btn a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.5s;
+	filter: blur(0px);
+}
+
+.type-container .btn:hover a::before {
+	transform: skewX(45deg) translate(200px);
+}
+
+.type-container .btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: -5px;
+	width: 30px;
+	height: 10px;
+	background: #154460;
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
+}
+
+.type-container .btn:hover::before /*lightup button*/ {
+	bottom: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
+}
+
+.type-container .btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: -5px;
+	width: 30px;
+	height: 10px;
+	background: #f00;
+	border-radius: 10px;
+	transition: 0.5s;
+	transition-delay: 0.5;
+}
+
+.type-container .btn:hover::after /*lightup button*/ {
+	top: 0;
+	height: 50%;
+	width: 80%;
+	border-radius: 30px;
+}
+
